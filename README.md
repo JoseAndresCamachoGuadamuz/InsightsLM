@@ -2,7 +2,7 @@
 
 **AI-Powered Audio Transcription and Analysis Application**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/InsightsLM)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12.3-blue.svg)](https://www.python.org/)
 [![React](https://img.shields.io/badge/react-19.2.0-61DAFB.svg)](https://react.dev/)
@@ -56,7 +56,7 @@ InsightsLM is a powerful desktop application that combines state-of-the-art AI t
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/InsightsLM.git
+git clone https://github.com/JoseAndresCamachoGuadamuz/InsightsLM.git
 cd InsightsLM
 
 # 2. Set up backend (in WSL2)
@@ -73,7 +73,7 @@ npm install
 npm start
 ```
 
-For detailed installation instructions, see [SETUP_GUIDE.md](./SETUP_GUIDE.md).
+For detailed installation instructions, see [SETUP_GUIDE.md](./docs/SETUP_GUIDE.md).
 
 ---
 
@@ -115,12 +115,12 @@ For detailed installation instructions, see [SETUP_GUIDE.md](./SETUP_GUIDE.md).
 
 ## 📚 Documentation
 
-- **[User Guide](./USER_GUIDE.md)** - How to use InsightsLM
-- **[Setup Guide](./SETUP_GUIDE.md)** - Detailed installation instructions
-- **[API Reference](./API_REFERENCE.md)** - Backend API documentation (22 endpoints)
-- **[Architecture](./ARCHITECTURE.md)** - System design and architecture
-- **[Contributing](./CONTRIBUTING.md)** - How to contribute to the project
-- **[Code Standards](./CODE_STANDARDS.md)** - Coding and documentation standards
+- **[User Guide](./docs/USER_GUIDE.md)** - How to use InsightsLM
+- **[Setup Guide](./docs/SETUP_GUIDE.md)** - Detailed installation instructions
+- **[API Reference](./docs/API_REFERENCE.md)** - Backend API documentation (22 endpoints)
+- **[Architecture](./docs/ARCHITECTURE.md)** - System design and architecture
+- **[Contributing](./docs/CONTRIBUTING.md)** - How to contribute to the project
+- **[Code Standards](./docs/CODE_STANDARDS.md)** - Coding and documentation standards
 
 ---
 
@@ -218,7 +218,7 @@ External AI Providers:
 └─────────┴──────────┴───────────┴─────────┘
 ```
 
-For detailed architecture information, see [ARCHITECTURE.md](./ARCHITECTURE.md).
+For detailed architecture information, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ---
 
@@ -244,7 +244,7 @@ For detailed architecture information, see [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+We welcome contributions! Please see [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for guidelines.
 
 **Development Setup:**
 ```bash
@@ -261,7 +261,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 **Coding Standards:**
 - Frontend: TypeScript with TSDoc comments
 - Backend: Python with Google-style docstrings
-- See [CODE_STANDARDS.md](./CODE_STANDARDS.md) for details
+- See [CODE_STANDARDS.md](./docs/CODE_STANDARDS.md) for details
 
 ---
 
@@ -286,8 +286,8 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 ## 📞 Support
 
 - **Documentation:** [docs/](./docs/)
-- **Issues:** [GitHub Issues](https://github.com/yourusername/InsightsLM/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/InsightsLM/discussions)
+- **Issues:** [GitHub Issues](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/discussions)
 - **Email:** support@insightslm.com
 
 ---
@@ -318,7 +318,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 If you find InsightsLM useful, please consider giving it a star on GitHub!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/InsightsLM&type=Date)](https://star-history.com/#yourusername/InsightsLM&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=JoseAndresCamachoGuadamuz/InsightsLM&type=Date)](https://star-history.com/#JoseAndresCamachoGuadamuz/InsightsLM&Date)
 
 ---
 
