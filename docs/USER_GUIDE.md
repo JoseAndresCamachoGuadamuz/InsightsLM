@@ -8,19 +8,19 @@ This guide will teach you how to use all of InsightsLM's features, from basic tr
 
 ## 📋 **Table of Contents**
 
-1. [Getting Started](#getting-started)
-2. [Interface Overview](#interface-overview)
-3. [Transcribing Audio/Video](#transcribing-audiovideo)
-4. [Viewing and Searching Transcripts](#viewing-and-searching-transcripts)
-5. [Generating Summaries](#generating-summaries)
-6. [Creating Audio Overviews](#creating-audio-overviews)
-7. [Interactive Chat (Q&A)](#interactive-chat-qa)
-8. [Custom Reports](#custom-reports)
-9. [Settings and Configuration](#settings-and-configuration)
-10. [Exporting Content](#exporting-content)
-11. [Tips and Best Practices](#tips-and-best-practices)
-12. [FAQ](#faq)
-13. [Getting Help](#getting-help)
+1. [Getting Started](#-getting-started)
+2. [Interface Overview](#-interface-overview)
+3. [Transcribing Audio/Video](#-transcribing-audiovideo)
+4. [Viewing and Searching Transcripts](#-viewing-and-searching-transcripts)
+5. [Generating Summaries](#-generating-summaries)
+6. [Creating Audio Overviews](#-creating-audio-overviews)
+7. [Interactive Chat (Q&A)](#-interactive-chat-qa)
+8. [Custom Reports](#-custom-reports)
+9. [Settings and Configuration](#-settings-and-configuration)
+10. [Exporting Content](#-exporting-content)
+11. [Tips and Best Practices](#-tips-and-best-practices)
+12. [FAQ](#-faq)
+13. [Getting Help](#-getting-help)
 
 ---
 

@@ -9,14 +9,14 @@
 
 ## 📋 Table of Contents
 
-1. [Overview](#overview)
-2. [Python Documentation](#python-documentation)
-3. [TypeScript/JavaScript Documentation](#typescriptjavascript-documentation)
-4. [React Component Documentation](#react-component-documentation)
-5. [Comment Guidelines](#comment-guidelines)
-6. [Tools and Validation](#tools-and-validation)
-7. [Documentation Checklist](#documentation-checklist)
-8. [Additional Resources](#additional-resources)
+1. [Overview](#-overview)
+2. [Python Documentation](#-python-documentation)
+3. [TypeScript/JavaScript Documentation](#-typescriptjavascript-documentation)
+4. [React Component Documentation](#-react-component-documentation)
+5. [Comment Guidelines](#-comment-guidelines)
+6. [Tools and Validation](#-tools-and-validation)
+7. [Documentation Checklist](#-documentation-checklist)
+8. [Additional Resources](#-additional-resources)
 
 ---
 

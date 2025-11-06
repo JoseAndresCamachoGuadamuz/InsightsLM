@@ -10,18 +10,18 @@
 
 ## 📋 Table of Contents
 
-1. [System Overview](#system-overview)
-2. [Architecture Principles](#architecture-principles)
-3. [High-Level Architecture](#high-level-architecture)
-4. [Technology Stack](#technology-stack)
-5. [Component Architecture](#component-architecture)
-6. [Data Flow](#data-flow)
-7. [Database Design](#database-design)
-8. [Security Architecture](#security-architecture)
-9. [Deployment Architecture](#deployment-architecture)
-10. [Design Decisions](#design-decisions)
-11. [Future Architectural Considerations](#future-architectural-considerations)
-12. [References](#references)
+1. [System Overview](#-system-overview)
+2. [Architecture Principles](#-architecture-principles)
+3. [High-Level Architecture](#-high-level-architecture)
+4. [Technology Stack](#-technology-stack)
+5. [Component Architecture](#-component-architecture)
+6. [Data Flow](#-data-flow)
+7. [Database Design](#-database-design)
+8. [Security Architecture](#-security-architecture)
+9. [Deployment Architecture](#-deployment-architecture)
+10. [Design Decisions](#-design-decisions)
+11. [Future Architectural Considerations](#-future-architectural-considerations)
+12. [References](#-references)
 
 ---
 

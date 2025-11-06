@@ -9,17 +9,17 @@ Thank you for your interest in contributing to InsightsLM! This document provide
 
 ## 📋 Table of Contents
 
-1. [Code of Conduct](#code-of-conduct)
-2. [Getting Started](#getting-started)
-3. [Development Workflow](#development-workflow)
-4. [Coding Standards](#coding-standards)
-5. [Commit Message Guidelines](#commit-guidelines)
-6. [Pull Request Process](#pull-request-process)
-7. [Testing](#testing)
-8. [Documentation](#documentation)
-9. [Recognition](#recognition)
-10. [Getting Help](#getting-help)
-11. [License](#license)
+1. [Code of Conduct](#-code-of-conduct)
+2. [Getting Started](#-getting-started)
+3. [Development Workflow](#-development-workflow)
+4. [Coding Standards](#-coding-standards)
+5. [Commit Message Guidelines](#-commit-guidelines)
+6. [Pull Request Process](#-pull-request-process)
+7. [Testing](#-testing)
+8. [Documentation](#-documentation)
+9. [Recognition](#-recognition)
+10. [Getting Help](#-getting-help)
+11. [License](#-license)
 
 ---
 

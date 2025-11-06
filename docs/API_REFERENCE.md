@@ -10,19 +10,19 @@
 
 ## 📋 Table of Contents
 
-1. [Overview](#overview)
-2. [Authentication](#authentication)
-3. [API Endpoints](#api-endpoints)
-   - [Health & Testing](#health--testing)
-   - [Models](#models)
-   - [Transcription](#transcription)
-   - [Templates](#templates)
-   - [Analysis](#analysis)
-   - [Export & Configuration](#export--configuration)
-4. [Error Handling](#error-handling)
-5. [Rate Limiting](#rate-limiting)
-6. [Code Examples](#code-examples)
-7. [Additional Resources](#additional-resources)
+1. [Overview](#-overview)
+2. [Authentication](#-authentication)
+3. [API Endpoints](#-api-endpoints)
+   - [Health & Testing](#-health--testing)
+   - [Models](#-models)
+   - [Transcription](#-transcription)
+   - [Templates](#-templates)
+   - [Analysis](#-analysis)
+   - [Export & Configuration](#-export--configuration)
+4. [Error Handling](#-error-handling)
+5. [Rate Limiting](#-rate-limiting)
+6. [Code Examples](#-code-examples)
+7. [Additional Resources](#-additional-resources)
 
 ---
 

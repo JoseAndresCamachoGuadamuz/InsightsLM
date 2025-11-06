@@ -10,18 +10,18 @@
 
 ## 📋 Table of Contents
 
-1. [System Requirements](#system-requirements)
-2. [Prerequisites](#prerequisites)
-3. [Backend Setup (WSL2/Linux)](#backend-setup-wsl2linux)
-4. [Frontend Setup (Windows)](#frontend-setup-windows)
-5. [First Run](#first-run)
-6. [Configuration](#configuration)
-7. [GPU Setup (Optional)](#gpu-setup-optional)
-8. [Troubleshooting](#troubleshooting)
-9. [Verification](#verification)
-10. [Next Steps](#next-steps)
-11. [Additional Resources](#additional-resources)
-12. [Getting Help](#getting-help)
+1. [System Requirements](#-system-requirements)
+2. [Prerequisites](#-prerequisites)
+3. [Backend Setup (WSL2/Linux)](#-backend-setup-wsl2linux)
+4. [Frontend Setup (Windows)](#-frontend-setup-windows)
+5. [First Run](#-first-run)
+6. [Configuration](#-configuration)
+7. [GPU Setup (Optional)](#-gpu-setup-optional)
+8. [Troubleshooting](#-troubleshooting)
+9. [Verification](#-verification)
+10. [Next Steps](#-next-steps)
+11. [Additional Resources](#-additional-resources)
+12. [Getting Help](#-getting-help)
 
 ---
 
