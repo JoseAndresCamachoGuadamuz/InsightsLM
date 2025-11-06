@@ -1,0 +1,1416 @@
+/* frontend/src/index.css */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  color: #333;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar h1 { margin-top: 0; }
+.sidebar p { color: #6c757d; }
+
+.model-selector {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.model-selector label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.model-selector select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.url-input-box {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.url-input-box input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px 0 0 5px;
+  font-size: 0.8rem;
+  min-width: 0;
+}
+.url-input-box button {
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  padding: 8px 15px;
+}
+.or-divider {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+/* NEW: File Input Section Styles */
+.file-input-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 1rem 0 0.75rem 0;
+  display: block;
+}
+
+/* Drag & Drop Zone */
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  margin-bottom: 0.75rem;
+  cursor: default; /* NOT clickable */
+}
+
+.drop-zone:hover {
+  border-color: #999;
+  background-color: #f5f5f5;
+}
+
+.drop-zone.dragging {
+  border-color: #007bff;
+  border-style: solid;
+  background-color: #e7f3ff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.drop-zone p {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Choose File Button */
+.choose-file-btn {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.choose-file-btn:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.choose-file-btn:active:not(:disabled) {
+  background-color: #545b62;
+}
+
+.choose-file-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+#file-upload { margin-top: 1rem; }
+
+/* OLD PROGRESS BAR STYLES REMOVED - Using new styles at line ~1073 */
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actions button {
+  opacity: 1;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.actions button:hover:not(:disabled) { background-color: #0056b3; }
+.actions button:disabled { background-color: #a0c8f0; cursor: not-allowed; opacity: 0.7; }
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.view-switcher {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+.view-switcher button {
+  background: none;
+  border: none;
+  color: #6c757d;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.view-switcher button.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+.error { color: #dc3545; }
+
+.results-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.results-box .tab-header {
+  margin-bottom: 1rem;
+}
+
+.results-box textarea {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.summary-content, .overview-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.summary-content .summary-text, .overview-content .summary-text {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+}
+
+.overview-content .audio-player-box {
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.overview-content .audio-player-box audio {
+  width: 100%;
+}
+.overview-content hr {
+  border: none;
+  border-top: 1px solid #dee2e6;
+  margin: 1.5rem 0;
+}
+
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.tab-header h2 {
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.header-actions button {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+/* NEW: Export actions for buttons below content (e.g., Overview tab) */
+.export-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0.75rem 0;
+}
+
+.export-actions button {
+  font-size: 0.85rem;
+  padding: 8px 14px;
+}
+
+/* --- Reports Tab Styles --- */
+.reports-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.reports-content h2, .reports-content h3, .reports-content h4 {
+  margin-top: 0;
+}
+.reports-actions {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+button.primary-action {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.primary-action:hover {
+  background-color: #218838;
+}
+
+button.secondary-action, .clear-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.secondary-action:hover, .clear-button:hover {
+  background-color: #5a6268;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.template-form {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.template-form label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.template-form input, .template-form textarea, .template-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.template-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.template-form button {
+  align-self: flex-start;
+}
+
+.template-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.template-item-container {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+.template-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.template-item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.report-result {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+.report-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.report-result-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.report-result-header .clear-button {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+}
+.report-result pre {
+  background-color: #e9ecef;
+  padding: 1rem;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+/* --- Settings Tab Styles --- */
+.settings-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.settings-content h2, .settings-content h3 {
+  margin-top: 0;
+}
+.settings-content h3 {
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+.settings-form {
+  max-width: 900px; /* Increased from 600px to accommodate long API keys */
+}
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.form-group input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+.form-group small {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.config-status {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* REQUIREMENT 5.5: API Testing Styles for Enhanced Settings Tab */
+
+/* API Section Styling */
+.api-section {
+  margin: 1rem 0;
+}
+
+.api-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.api-section-header h3 {
+  margin: 0;
+}
+
+/* API Key Group Layout */
+.api-key-group {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fafafa;
+}
+
+.api-test-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.api-test-row input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.api-status-display {
+  flex: 1;
+  color: #666;
+  font-style: italic;
+  padding: 0.5rem;
+}
+
+/* Test Connection Button */
+.test-connection-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  min-width: 120px;
+  transition: background-color 0.2s;
+}
+
+.test-connection-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.test-connection-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Status Indicator */
+.status-indicator {
+  min-width: 150px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.status-indicator[class*="success"] {
+  color: #28a745;
+}
+
+.status-indicator[class*="error"] {
+  color: #dc3545;
+}
+
+.status-indicator[class*="testing"] {
+  color: #ffc107;
+}
+
+/* Form Group Enhancements */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Responsive Design for Settings */
+@media (max-width: 768px) {
+  .api-test-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .api-test-row input,
+  .api-status-display {
+    width: 100%;
+  }
+  
+  .test-connection-btn {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .status-indicator {
+    min-width: auto;
+    justify-content: center;
+  }
+  
+  .api-section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+}
+
+/* --- Chat & Citation Styles --- */
+.chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+}
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  max-width: 70%;
+}
+.message-wrapper.user { align-self: flex-end; }
+.message-wrapper.ai { align-self: flex-start; }
+.message {
+  padding: 10px 15px;
+  border-radius: 18px;
+  word-wrap: break-word;
+}
+.message-wrapper.user .message { background-color: #007bff; color: white; }
+.message-wrapper.ai .message { background-color: #e9ecef; color: #333; }
+.message p { margin: 0; }
+.citations-container {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 3px solid #ced4da;
+}
+.citations-container h5 { margin: 0 0 5px 0; font-size: 0.8rem; color: #6c757d; }
+.citation-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+.citation-time {
+  font-weight: bold;
+  color: #0056b3;
+  display: block;
+  margin-bottom: 5px;
+  font-family: monospace;
+}
+.citation-text {
+  margin: 0;
+  color: #495057;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-input-form {
+  display: flex;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+  flex-shrink: 0;
+}
+.chat-input-form input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
+  min-width: 0;
+}
+.chat-input-form button { flex-shrink: 0; }
+
+/* ============================================
+   REQUIREMENT 4: PROMPT MODAL STYLES
+   ============================================ */
+
+/* Modal Backdrop - Semi-transparent overlay */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content Container */
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 800px;
+  min-width: 400px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+  resize: both;
+  overflow: auto;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.modal-close-x {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close-x:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+/* Modal Body */
+.modal-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  min-height: 200px;
+}
+
+.prompt-text {
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+  border-radius: 0 0 8px 8px;
+}
+
+.btn-copy,
+.btn-modal-close {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-copy {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-copy:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-copy:active {
+  transform: translateY(0);
+}
+
+.btn-modal-close {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-modal-close:hover {
+  background-color: #545b62;
+  transform: translateY(-1px);
+}
+
+.btn-modal-close:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    min-width: 300px;
+    max-height: 80vh;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .prompt-text {
+    font-size: 0.85rem;
+  }
+
+  .btn-copy,
+  .btn-modal-close {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility - Focus visible for keyboard navigation */
+.btn-copy:focus,
+.btn-modal-close:focus,
+.modal-close-x:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling for modal body */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* ===================================================================
+   STEP 1: NEW STYLES FOR LEFT PANE UI REDESIGN
+   =================================================================== */
+
+/* Toast Notification System */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  z-index: 9999;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border: 2px solid #dc3545;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toast-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.toast-message {
+  flex: 1;
+  color: #dc3545;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+  opacity: 0.7;
+}
+
+/* Sidebar Box Grouping Styles */
+.sidebar-box {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-box h1 {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.sidebar-box legend {
+  font-weight: 600;
+  font-size: 14px;
+  color: #495057;
+  padding: 0 8px;
+  margin-bottom: 0;
+}
+
+fieldset.sidebar-box {
+  width: 100%;
+  box-sizing: border-box;
+  min-inline-size: auto;
+}
+
+.header-box {
+  text-align: center;
+  padding: 20px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.header-box h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #212529;
+}
+
+.progress-box {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* Model Select Full Width */
+.model-select-full {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.model-select-full:hover {
+  border-color: #80bdff;
+}
+
+.model-select-full:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* File Input Box Elements Within Sidebar Box */
+.sidebar-box .drop-zone {
+  margin-bottom: 12px;
+}
+
+.sidebar-box .choose-file-btn {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.sidebar-box .url-input-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.sidebar-box .url-input-box input {
+  flex: 1;
+}
+
+/* Progress Bar Container (Updated) */
+.progress-bar-container {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 auto 8px auto;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #28a745;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.status-message {
+  margin: 8px 0 0 0;
+  text-align: center;
+  color: #495057;
+  font-size: 14px;
+}
+
+/* Actions Box Buttons (Updated for Sidebar Box) */
+.sidebar-box .actions {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-box .actions button {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-box .actions button:not(.reset-button) {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar-box .actions button:not(.reset-button):hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.sidebar-box .actions button.reset-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.sidebar-box .actions button.reset-button:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.sidebar-box .actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===================================================================
+   END OF STEP 1 ADDITIONS
+   =================================================================== */
+
+/* ===================================================================
+   API KEY SECURITY ENHANCEMENT - STEPS 5-8
+   =================================================================== */
+
+/* STEP 5: Security Notice Banner */
+.security-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #e7f3ff;
+  border: 1px solid #007bff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #004085;
+}
+
+.security-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.security-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* STEP 6: Help Links */
+.form-group label .help-link {
+  display: inline-block;
+  margin-left: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: #007bff;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.form-group label .help-link:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+.form-group label .help-link:active {
+  transform: scale(1.0);
+}
+
+/* STEP 7: Password Input with Toggle Button */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.password-input-wrapper input {
+  flex: 1;
+  padding-right: 45px; /* Make room for toggle button */
+  font-size: 0.85rem; /* Smaller font for long API keys */
+  font-family: 'Courier New', Monaco, monospace; /* Monospace for API keys */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+  color: #6c757d;
+}
+
+.password-toggle-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.password-toggle-btn:active {
+  transform: scale(1.0);
+}
+
+/* Ensure api-test-row wraps properly with new password wrapper */
+.api-test-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===================================================================
+   STEP 9: BACKEND CONNECTION ERROR HANDLING
+   =================================================================== */
+
+/* Settings Header with Connection Status */
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.settings-header h2 {
+  margin: 0;
+}
+
+/* Connection Status Indicator */
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.connection-status.connected {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.connection-status.disconnected {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.connection-status.connected .status-dot {
+  background-color: #28a745;
+  animation: pulse 2s infinite;
+}
+
+.connection-status.disconnected .status-dot {
+  background-color: #dc3545;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-text {
+  white-space: nowrap;
+}
+
+/* Backend Error Message */
+.backend-error-message {
+  display: flex;
+  gap: 16px;
+  background-color: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.error-content {
+  flex: 1;
+}
+
+.error-content h3 {
+  margin: 0 0 12px 0;
+  color: #856404;
+  font-size: 1.1rem;
+}
+
+.error-content p {
+  margin: 0 0 16px 0;
+  color: #856404;
+  font-size: 0.95rem;
+}
+
+.error-section {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 6px;
+  border-left: 4px solid #ffc107;
+}
+
+.error-section strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #856404;
+  font-size: 0.9rem;
+}
+
+.error-section code {
+  display: block;
+  background-color: #f8f9fa;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.85rem;
+  color: #495057;
+  margin-top: 8px;
+  overflow-x: auto;
+}
+
+.error-section ol {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.error-section li {
+  margin-bottom: 4px;
+  color: #856404;
+  font-size: 0.9rem;
+  font-family: 'Courier New', Monaco, monospace;
+}
+
+/* Retry Connection Button */
+.retry-connection-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.retry-connection-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+.retry-connection-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.retry-connection-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===================================================================
+   END OF STEP 9
+   =================================================================== */
+
+/* ===================================================================
+   END OF API KEY SECURITY ENHANCEMENT
+   =================================================================== */
+

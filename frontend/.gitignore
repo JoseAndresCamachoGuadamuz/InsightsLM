@@ -1,0 +1,100 @@
+﻿# ===== Logs =====
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# ===== Diagnostic reports =====
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ===== Runtime data =====
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===== Coverage and Testing =====
+lib-cov
+coverage
+*.lcov
+.nyc_output
+
+# ===== Node.js =====
+node_modules/
+jspm_packages/
+.npm
+.node_repl_history
+*.tgz
+
+# ===== TypeScript =====
+typings/
+*.tsbuildinfo
+
+# ===== Build outputs =====
+build/
+build/Release
+dist/
+out/
+.webpack/
+.vite/
+.cache
+.next
+.nuxt
+.vuepress/dist
+
+# ===== Electron Forge =====
+# out/ folder is already listed above
+
+# ===== Environment variables =====
+.env
+.env.local
+.env.test
+.env.production
+
+# ===== IDE and Editors =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ===== OS specific =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Package manager =====
+.yarn-integrity
+.pnp
+.pnp.js
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# ===== Optional caches =====
+.eslintcache
+.stylelintcache
+
+# ===== Serverless =====
+.serverless/
+.fusebox/
+.dynamodb/
+
+# ===== Lock files =====
+.lock-wscript
+
+# ===== Backup files =====
+*.backup
+*.bak
+main.ts.backup
+App.tsx.backup
+
+# ===== Temporary files =====
+*.tmp
+*.temp
