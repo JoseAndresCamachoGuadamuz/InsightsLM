@@ -24,12 +24,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR-ORG/InsightsLM"
+    "url": "https://github.com/JoseAndresCamachoGuadamuz/InsightsLM.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR-ORG/InsightsLM/issues"
+    "url": "https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/issues"
   },
-  "homepage": "https://github.com/YOUR-ORG/InsightsLM#readme",
+  "homepage": "https://github.com/JoseAndresCamachoGuadamuz/InsightsLM#readme",
   "devDependencies": {
     "@electron-forge/cli": "^7.10.2",
     "@electron-forge/maker-deb": "^7.10.2",
