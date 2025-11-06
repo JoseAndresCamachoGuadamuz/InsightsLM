@@ -20,6 +20,8 @@
 8. [Security Architecture](#security-architecture)
 9. [Deployment Architecture](#deployment-architecture)
 10. [Design Decisions](#design-decisions)
+11. [Future Architectural Considerations](#future-architectural-considerations)
+12. [References](#references)
 
 ---
 

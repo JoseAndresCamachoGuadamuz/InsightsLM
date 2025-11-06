@@ -20,6 +20,7 @@ This guide will teach you how to use all of InsightsLM's features, from basic tr
 10. [Exporting Content](#exporting-content)
 11. [Tips and Best Practices](#tips-and-best-practices)
 12. [FAQ](#faq)
+13. [Getting Help](#getting-help)
 
 ---
 

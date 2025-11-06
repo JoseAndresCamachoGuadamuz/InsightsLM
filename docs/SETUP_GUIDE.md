@@ -19,6 +19,9 @@
 7. [GPU Setup (Optional)](#gpu-setup-optional)
 8. [Troubleshooting](#troubleshooting)
 9. [Verification](#verification)
+10. [Next Steps](#next-steps)
+11. [Additional Resources](#additional-resources)
+12. [Getting Help](#getting-help)
 
 ---
 

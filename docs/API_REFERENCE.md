@@ -22,6 +22,7 @@
 4. [Error Handling](#error-handling)
 5. [Rate Limiting](#rate-limiting)
 6. [Code Examples](#code-examples)
+7. [Additional Resources](#additional-resources)
 
 ---
 

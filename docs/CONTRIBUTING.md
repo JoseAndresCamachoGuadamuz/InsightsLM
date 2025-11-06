@@ -17,6 +17,9 @@ Thank you for your interest in contributing to InsightsLM! This document provide
 6. [Pull Request Process](#pull-request-process)
 7. [Testing](#testing)
 8. [Documentation](#documentation)
+9. [Recognition](#recognition)
+10. [Getting Help](#getting-help)
+11. [License](#license)
 
 ---
 

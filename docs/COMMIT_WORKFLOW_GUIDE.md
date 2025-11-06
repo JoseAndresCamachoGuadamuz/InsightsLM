@@ -28,14 +28,19 @@
 
 ## 📋 Table of Contents
 
-1. [Overview](#overview)
-2. [System Setup](#system-setup)
-3. [Commit Strategy](#commit-strategy)
-4. [Step-by-Step Workflow](#step-by-step-workflow)
-5. [Conventional Commits Format](#conventional-commits-format)
-6. [Common Scenarios](#common-scenarios)
-7. [Troubleshooting](#troubleshooting)
-8. [Best Practices](#best-practices)
+1. [IMPORTANT: Customize for Your System](#important-customize-for-your-system)
+
+2. [Overview](#overview)
+3. [System Setup](#system-setup)
+4. [Commit Strategy](#commit-strategy)
+5. [Step-by-Step Workflow](#step-by-step-workflow)
+6. [Conventional Commits Format](#conventional-commits-format)
+7. [Common Scenarios](#common-scenarios)
+8. [Troubleshooting](#troubleshooting)
+9. [Best Practices](#best-practices)
+10. [Quick Reference](#quick-reference)
+11. [Additional Resources](#additional-resources)
+12. [Getting Help](#getting-help)
 
 ---
 

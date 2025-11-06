@@ -15,6 +15,8 @@
 4. [React Component Documentation](#react-component-documentation)
 5. [Comment Guidelines](#comment-guidelines)
 6. [Tools and Validation](#tools-and-validation)
+7. [Documentation Checklist](#documentation-checklist)
+8. [Additional Resources](#additional-resources)
 
 ---
 
