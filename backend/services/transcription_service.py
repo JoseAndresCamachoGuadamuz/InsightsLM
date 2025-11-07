@@ -34,7 +34,7 @@ except ImportError:
 
 # Import platform utilities for GPU detection
 try:
-    from platform_utils import (
+    from .platform_utils import (
         get_compute_device,
         get_system_info,
         get_cuda_memory_info,
