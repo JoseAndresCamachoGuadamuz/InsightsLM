@@ -53,7 +53,7 @@ async function tryStartBackendOnPort(port: number): Promise<boolean> {
       // Spawn Python backend via WSL
       // CRITICAL: Must specify Ubuntu distro (not docker-desktop default)
       // CRITICAL: Must run as user (not root) so ~ resolves correctly
-      const wslCommand = `cd ~/InsightsLM/backend && source venv/bin/activate && uvicorn main:app --host 0.0.0.0 --port ${port}`;
+      const wslCommand = `cd ~/InsightsLM-new/backend && source venv/bin/activate && uvicorn main:app --host 0.0.0.0 --port ${port}`;
       
       // Get WSL username from environment or default to current Windows user
       const wslUser = process.env.WSL_USER || process.env.USERNAME?.toLowerCase() || 'user';
