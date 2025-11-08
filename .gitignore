@@ -424,3 +424,4 @@ pip_freeze_actual.txt
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+tmp/
