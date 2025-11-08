@@ -300,8 +300,7 @@ These tools assisted with code generation, documentation, debugging, and impleme
 
 - **Documentation:** [docs/](./docs/)
 - **Issues:** [GitHub Issues](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/discussions)
-- **Email:** support@insightslm.com
+- **Email:** joseandrescamachoguadamuz@gmail.com
 
 ---
 
