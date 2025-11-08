@@ -1,4 +1,4 @@
-"""
+﻿"""
 Transcription Service - Cross-Platform GPU-Accelerated Audio Transcription
 
 This module provides audio transcription using faster-whisper with automatic
@@ -175,10 +175,8 @@ def initialize_model(model_size: str = "auto", device: str = "auto") -> None:
     if device == "auto":
         if PLATFORM_UTILS_AVAILABLE:
             device = get_compute_device()
-            # Preflight: check cuDNN before trying CUDA
-            if device == "cuda" and not _cudnn_ops_loadable():
-                print("[PREFLIGHT] cuDNN not available → using CPU")
-                device = "cpu"
+            # Note: Skipping cuDNN preflight check - fallback strategy handles it
+            # ctranslate2 includes cuDNN or works without separate installation
             print(f"[AUTO] Detected device: {device}")
         else:
             device = "cpu"
@@ -233,7 +231,7 @@ def initialize_model(model_size: str = "auto", device: str = "auto") -> None:
             current_device = attempt_device
             current_model_size = model_size
             
-            print(f"✓ Model loaded successfully on {attempt_device}!")
+            print(f"âœ“ Model loaded successfully on {attempt_device}!")
             
             print(f"[PIPELINE] Whisper: {current_device.upper()} | VAD: AUTO | Fallback: CPU on cuDNN error")
             # Display expected performance
@@ -249,11 +247,11 @@ def initialize_model(model_size: str = "auto", device: str = "auto") -> None:
             error_msg = str(e)
             last_error = e
             
-            print(f"✗ Failed to load on {attempt_device}: {error_msg[:100]}")
+            print(f"âœ— Failed to load on {attempt_device}: {error_msg[:100]}")
             
             # Check if cuDNN-related error
             if "cudnn" in error_msg.lower():
-                print(f"  → cuDNN issue detected. Trying fallback...")
+                print(f"  â†’ cuDNN issue detected. Trying fallback...")
             
             # Continue to next attempt
             continue
@@ -298,7 +296,7 @@ def unload_model() -> None:
         model = None
         current_device = None
         current_model_size = None
-        print("✓ Model unloaded")
+        print("âœ“ Model unloaded")
     else:
         print("No model loaded")
 
@@ -378,7 +376,7 @@ def transcribe_audio(
         except Exception as e:
             _msg = str(e).lower()
             if 'cudnn' in _msg or 'libcudnn' in _msg:
-                print('[GPU] cuDNN-related error detected → retrying on CPU without VAD…')
+                print('[GPU] cuDNN-related error detected â†’ retrying on CPU without VADâ€¦')
                 initialize_model(model_size=current_model_size or model_size, device='cpu')
                 segments, info = model.transcribe(
                     file_path,
@@ -414,7 +412,7 @@ def transcribe_audio(
             "language": info.language
         }
         
-        print("✓ Transcription completed.")
+        print("âœ“ Transcription completed.")
         print(f"  Language: {info.language}")
         print(f"  Duration: {info.duration:.1f}s")
         print(f"  Segments: {len(segments_list)}")
@@ -423,7 +421,7 @@ def transcribe_audio(
         
     except Exception as e:
         error_msg = f"An error occurred during transcription: {e}"
-        print(f"✗ {error_msg}")
+        print(f"âœ— {error_msg}")
         
         # Return empty result with error
         return {
@@ -495,18 +493,18 @@ if __name__ == "__main__":
                 result = transcribe_audio(test_file)
                 elapsed = time.time() - start
                 
-                print(f"\n✅ SUCCESS!")
+                print(f"\nâœ… SUCCESS!")
                 print(f"Time: {elapsed:.2f}s")
                 print(f"Text: {result['text'][:150]}...")
                 print(f"Language: {result['language']}")
             except Exception as e:
-                print(f"✗ Failed: {e}")
+                print(f"âœ— Failed: {e}")
         else:
-            print(f"✗ {msg}")
+            print(f"âœ— {msg}")
     else:
         print("\nTo test transcription:")
         print("  python transcription_service.py path/to/audio.mp3")
     
     print("\n" + "=" * 60)
-    print("✓ Diagnostic complete")
+    print("âœ“ Diagnostic complete")
     print("=" * 60 + "\n")

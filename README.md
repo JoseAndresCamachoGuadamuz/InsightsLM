@@ -50,7 +50,7 @@ InsightsLM is a powerful desktop application that combines state-of-the-art AI t
 - WSL2 with Ubuntu 24.04 LTS
 - Python **3.12.3** or higher
 - pip **24.0** or higher
-- CUDA Toolkit (optional, for GPU acceleration)
+- CUDA Toolkit (optional, for GPU acceleration) - See [Windows GPU Setup Guide](docs/WINDOWS_GPU_SETUP.md)
 
 ### Installation
 
@@ -292,7 +292,7 @@ This application was developed with coding assistance from AI tools, including:
 - **Google Gemini** (Google) - Code review and optimization
 - **Perplexity** (Perplexity AI) - Research and documentation
 
-These tools assisted with code generation, documentation, debugging, and implementation guidance. All design decisions, architecture choices, and final code review were performed by the human author.
+These tools assisted with code generation, documentation, debugging, and implementation guidance. All design decisions, architecture choices, and final code review were performed by the author.
 
 ---
 
@@ -300,7 +300,8 @@ These tools assisted with code generation, documentation, debugging, and impleme
 
 - **Documentation:** [docs/](./docs/)
 - **Issues:** [GitHub Issues](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/issues)
-- **Email:** joseandrescamachoguadamuz@gmail.com
+- **Discussions:** [GitHub Discussions](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/discussions)
+- **Email:** support@insightslm.com
 
 ---
 
