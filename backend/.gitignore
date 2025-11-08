@@ -1,47 +1,291 @@
-# Python
+# ========================================
+# InsightsLM Backend - .gitignore
+# Python + FastAPI + ML/AI Backend
+# ========================================
+
+# ===== Python Core =====
+# Byte-compiled / optimized files
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 *.egg-info/
 dist/
 build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg
+MANIFEST
+develop-eggs/
+downloads/
+.installed.cfg
 
-# Virtual Environment
+# ===== Virtual Environments =====
 venv/
 env/
 ENV/
+.venv/
+env.bak/
+venv.bak/
+.Python
 
-# Environment Variables
+# ===== Environment Variables & Configuration =====
+# CRITICAL: Never commit secrets
 .env
 .env.local
+.env.*.local
+*.key
+*.pem
+*.p12
+.secrets/
+secrets/
+config.json
 
-# Database
+# ===== Database Files =====
+# SQLite databases
 *.db
 *.sqlite
 *.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
 
-# User Data
+# Database backups
+*.sql
+*.dump
+
+# ===== User Data & Uploads =====
+# Temporary uploads
 temp_uploads/
-static/audio_overviews/
-chroma_db/
+uploads/
+tmp/
 
-# IDE
+# Audio overviews
+static/audio_overviews/
+audio_overviews/
+
+# Vector database
+chroma_db/
+chromadb/
+vectordb/
+
+# User files
+user_data/
+data/
+
+# ===== AI/ML Specific =====
+# Model files (if not using remote APIs)
+models/
+*.pt
+*.pth
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.onnx
+
+# Whisper cache
+whisper_cache/
+.whisper/
+
+# Transformers cache
+transformers_cache/
+.cache/
+
+# Hugging Face
+.huggingface/
+
+# ===== Logs =====
+*.log
+*.log.*
+logs/
+log/
+fastapi.log
+uvicorn.log
+error.log
+access.log
+
+# ===== Testing & Coverage =====
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest/
+test_results/
+
+# ===== IDE & Editors =====
+# VSCode
 .vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
 .idea/
+*.iws
+*.iml
+*.ipr
+
+# Vim
 *.swp
 *.swo
 *~
+.vim/
 
-# Logs
-*.log
+# Emacs
+*~
+\#*\#
+.\#*
 
-# OS
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# ===== OS Specific =====
+# macOS
 .DS_Store
-Thumbs.db
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
 
-# Backup files
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ===== Backup Files =====
 *.backup
 *.bak
+*.old
+*.orig
+*.tmp
+*.temp
+*_backup_*
+*.backup_*
+
+# Service backups (from safe implementation)
+*_backup.py
 main.py.backup
+transcription_service_backup*.py
+llm_service_backup*.py
+config_service_backup*.py
+
+# Step files (from incremental development)
+*_step*.py
+*_step*.txt
+
+# ===== Python Type Checking =====
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# ===== Jupyter Notebooks =====
+.ipynb_checkpoints/
+*.ipynb
+
+# ===== Documentation =====
+docs/_build/
+.doctrees/
+htmldocs/
+
+# ===== Build Artifacts =====
+*.o
+*.a
+*.lib
+*.exe
+
+# ===== Compression =====
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# ===== FastAPI Specific =====
+# Session files
+*.session
+sessions/
+
+# Static files (if generated)
+static/generated/
+static/temp/
+
+# Alembic migrations (if using)
+alembic/versions/*.pyc
+
+# ===== Platform Specific =====
+# Windows requirements
+requirements-windows.txt
+requirements-windows-actual.txt
+
+# WSL2 requirements
+requirements-wsl2.txt
+requirements-wsl2-actual.txt
+
+# Dry run outputs
+dry_run_output.txt
+pip_freeze_actual.txt
+requirements_step*.txt
+
+# Platform detection
+platform_utils.py
+
+# ===== Performance Profiling =====
+*.prof
+*.lprof
+profile_stats.txt
+
+# ===== Temporary Analysis =====
+# Phase 3B cleanup
+temp_analysis/
+*_output.txt
+*_analysis.txt
+
+# ===== GPU/CUDA =====
+# CUDA cache
+.nv/
+*.cu.o
+*.ptx
+
+# ===== Dependencies =====
+# Uncomment if you want to ignore lock files
+# Pipfile.lock
+# poetry.lock
+# requirements.txt.lock
