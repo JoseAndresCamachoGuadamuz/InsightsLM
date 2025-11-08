@@ -1,4 +1,9 @@
-﻿# ===== Logs =====
+# ========================================
+# InsightsLM Frontend - .gitignore
+# Electron + React + TypeScript + Vite
+# ========================================
+
+# ===== Logs =====
 logs
 *.log
 npm-debug.log*
@@ -21,6 +26,9 @@ lib-cov
 coverage
 *.lcov
 .nyc_output
+.jest/
+test-results/
+junit.xml
 
 # ===== Node.js =====
 node_modules/
@@ -32,6 +40,7 @@ jspm_packages/
 # ===== TypeScript =====
 typings/
 *.tsbuildinfo
+*.tsbuildinfo.*
 
 # ===== Build outputs =====
 build/
@@ -44,42 +53,104 @@ out/
 .next
 .nuxt
 .vuepress/dist
+.temp/
+.tmp/
 
 # ===== Electron Forge =====
-# out/ folder is already listed above
+# Additional Electron-specific
+.electron/
+electron-packager/
 
 # ===== Environment variables =====
 .env
 .env.local
 .env.test
 .env.production
+.env.*.local
+*.key
+*.pem
 
 # ===== IDE and Editors =====
+# VSCode
 .vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# JetBrains IDEs
 .idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
 *.swp
 *.swo
 *~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Eclipse
 .project
 .classpath
 .settings/
 
 # ===== OS specific =====
+# macOS
 .DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
 Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
 desktop.ini
+.Trash-*
 
 # ===== Package manager =====
 .yarn-integrity
 .pnp
 .pnp.js
+.pnp.*
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+.yarn/
+.yarnrc.yml
 
 # ===== Optional caches =====
 .eslintcache
 .stylelintcache
+.prettiercache
 
 # ===== Serverless =====
 .serverless/
@@ -92,9 +163,98 @@ pnpm-lock.yaml
 # ===== Backup files =====
 *.backup
 *.bak
+*.old
+*.orig
+*_backup_*
+*.backup_*
+
+# Component backups (from safe implementation)
 main.ts.backup
 App.tsx.backup
+*_backup.tsx
+*_backup.ts
+*_backup.jsx
+*_backup.js
+
+# Step files (from incremental development)
+*_step*.tsx
+*_step*.ts
+*_step*.jsx
+*_step*.js
 
 # ===== Temporary files =====
 *.tmp
 *.temp
+*~
+
+# ===== Storybook =====
+.storybook-static/
+storybook-static/
+
+# ===== Parcel =====
+.parcel-cache/
+
+# ===== Microbundle =====
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ===== Optional stylelint cache =====
+.stylelintcache
+
+# ===== Turborepo =====
+.turbo
+
+# ===== Vercel =====
+.vercel
+
+# ===== Vite =====
+.vite/
+vite.config.*.timestamp*
+
+# ===== Electron specific =====
+# Electron build outputs
+release/
+app/
+*.dmg
+*.exe
+*.snap
+*.deb
+*.rpm
+*.AppImage
+
+# Electron cache
+.electron-cache/
+
+# ===== TypeScript declarations =====
+*.d.ts.map
+
+# ===== Source maps =====
+*.map
+*.js.map
+*.css.map
+
+# ===== Compression =====
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# ===== Performance =====
+.perf/
+*.cpuprofile
+*.heapprofile
+
+# ===== Temporary Analysis =====
+# Phase 3B cleanup
+temp_analysis/
+*_output.txt
+*_analysis.txt
+
+# ===== Debug =====
+debug.log
+chrome-debug.log
+firefox-debug.log
