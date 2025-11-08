@@ -283,6 +283,19 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ---
 
+## 🛠️ Development Tools
+
+This application was developed with coding assistance from AI tools, including:
+
+- **Claude** (Anthropic) - Code architecture and implementation
+- **ChatGPT** (OpenAI) - Problem-solving and debugging
+- **Google Gemini** (Google) - Code review and optimization
+- **Perplexity** (Perplexity AI) - Research and documentation
+
+These tools assisted with code generation, documentation, debugging, and implementation guidance. All design decisions, architecture choices, and final code review were performed by the human author.
+
+---
+
 ## 📞 Support
 
 - **Documentation:** [docs/](./docs/)
@@ -325,6 +338,16 @@ If you find InsightsLM useful, please consider giving it a star on GitHub!
 ## 📸 Demo
 
 *(Coming soon - Add GIF or video demo)*
+
+---
+
+## 👤 Author
+
+**José Andrés Camacho Guadamuz**
+
+- 🌐 GitHub: [@JoseAndresCamachoGuadamuz](https://github.com/JoseAndresCamachoGuadamuz)
+- 📧 Email: [joseandrescamachoguadamuz@gmail.com](mailto:joseandrescamachoguadamuz@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/jose-andres-camacho-guadamuz](https://linkedin.com/in/jose-andres-camacho-guadamuz/)
 
 ---
 

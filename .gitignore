@@ -1,8 +1,20 @@
+# ========================================
+# InsightsLM - Root .gitignore
+# Cross-Platform (Windows + WSL2 + Linux)
+# ========================================
+
+# ===== Python =====
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
 *.pyc
 *.pyo
 *.pyd
+
+# C extensions
+*.so
 
 # Distribution / packaging
 .Python
@@ -18,51 +30,398 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+pip-wheel-metadata/
 
-# Databases
-*.db
-*.sqlite3
-*.db-journal
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
 
 # Virtual Environments
 .env
+.env.local
+.env.*.local
 .venv
+env/
 venv/
 ENV/
-env/
 env.bak/
 venv.bak/
 
-# Node / Frontend
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ===== Databases =====
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# ===== Node.js / Frontend =====
+# Dependencies
 frontend/node_modules/
+node_modules/
+
+# Build outputs
 frontend/dist/
 frontend/out/
 frontend/release/
-frontend/.env*.local
+frontend/build/
+frontend/.webpack/
+frontend/.vite/
+
+# Environment files
 frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
 
-# Configuration Files (DEFENSIVE: Prevent config.json commits anywhere)
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ===== Configuration Files =====
+# CRITICAL: Prevent sensitive config commits
 **/config.json
 config.json
 .local/
 
-# OS-generated files
+# API Keys and Secrets
+*.key
+*.pem
+*.p12
+.secrets/
+secrets/
+
+# ===== Backend Specific =====
+# User data and uploads
+backend/temp_uploads/
+backend/static/audio_overviews/
+backend/chroma_db/
+
+# Database files
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# ===== IDE and Editors =====
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+.\#*
+.emacs.desktop
+.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata
+
+# ===== OS Specific =====
+# macOS
 .DS_Store
 .DS_Store?
 ._*
+.AppleDouble
+.LSOverride
 .Spotlight-V100
 .Trashes
-ehthumbs.db
-Thumbs.db
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# VS Code
-.vscode/
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ===== Temporary Files =====
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*~
+
+# ===== Logs =====
+*.log
+logs/
+*.log.*
+
+# ===== Backup Files =====
+# Timestamped backups
+*.backup_*
+*_backup_*
+*_step*.py
+*_step*.js
+*_step*.ts
+*_step*.tsx
+*_step*.sh
+*.backup
+
+# ===== Testing & Coverage =====
+coverage/
+*.cover
+.coverage
+.coverage.*
+htmlcov/
+.nyc_output/
+.pytest_cache/
+
+# ===== Build Artifacts =====
+*.o
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+
+# ===== Documentation Build =====
+docs/_build/
+docs/.doctrees/
+site/
+
+# ===== Compression =====
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ===== Temporary Analysis (Phase 3B) =====
+# These will be cleaned up before merge
+temp_analysis/
+*_output.txt
+dry_run_output.txt
+
+# ===== Git Internals =====
+# Keep this at end to avoid conflicts
+.git/
+.gitattributes
+
+# ===== Project Specific =====
+# Samples and test data
+Samples/
+samples/
+test_data/
+test_audio/
+
+# WSL2 specific patterns
+platform_utils.py
+requirements-wsl2-actual.txt
+pip_freeze_actual.txt
+
+# ===== Package Managers =====
+# Lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+tmp/
