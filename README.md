@@ -2,14 +2,14 @@
 
 **AI-Powered Audio Transcription and Analysis Application**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12.3-blue.svg)](https://www.python.org/)
 [![React](https://img.shields.io/badge/react-19.2.0-61DAFB.svg)](https://react.dev/)
 [![Electron](https://img.shields.io/badge/electron-38.2.2-47848F.svg)](https://www.electronjs.org/)
 
-**Version:** 1.1 (Updated with actual system information)  
-**Last Updated:** November 4, 2025
+**Version:** 1.3.0 (Phase 6 V4 - Dynamic Model Discovery)  
+**Last Updated:** November 10, 2025
 
 ---
 
@@ -183,76 +183,63 @@ InsightsLM prioritizes your data security and privacy:
 
 ## 🏗️ Architecture
 
+
+```mermaid
+graph TB
+    subgraph Frontend["🖥️ Electron Frontend (Windows/Linux)"]
+        UI["React 19.2.0 + TypeScript 4.5.5<br/>Main Process (824 lines)<br/>App Component (1,958 lines)"]
+    end
+
+    subgraph Backend["⚙️ FastAPI Backend (WSL2/Linux)"]
+        API["FastAPI 0.118.3<br/>22 API Endpoints (911 lines)"]
+        
+        Services["Backend Services"]
+        Transcription["🎙️ Transcription<br/>(Whisper)"]
+        LLM["🤖 LLM Service<br/>(Multi-provider)"]
+        Vector["🔍 Vector DB<br/>(ChromaDB)"]
+        Config["🔐 Config<br/>(AES-256)"]
+        Export["📤 Export<br/>(Multi-format)"]
+        
+        API --> Services
+        Services --> Transcription
+        Services --> LLM
+        Services --> Vector
+        Services --> Config
+        Services --> Export
+    end
+
+    subgraph Storage["💾 Local Storage"]
+        SQLite["SQLite DB<br/>(780KB)"]
+        Chroma["ChromaDB<br/>(11MB)"]
+        Whisper["Whisper<br/>large-v3"]
+    end
+
+    subgraph AIProviders["☁️ AI Providers (Phase 6 V4: Dynamic Discovery)"]
+        Ollama["🏠 Ollama<br/>(Local)<br/>45+ models"]
+        OpenAI["☁️ OpenAI<br/>(Cloud)<br/>21 models"]
+        Anthropic["☁️ Anthropic<br/>(Cloud)<br/>9 models"]
+        Google["☁️ Google<br/>(Cloud)<br/>29+ models"]
+    end
+
+    UI -->|"HTTP REST API<br/>localhost:8000"| API
+    
+    Transcription --> Whisper
+    LLM --> Ollama
+    LLM --> OpenAI
+    LLM --> Anthropic
+    LLM --> Google
+    
+    Vector --> Chroma
+    Config --> SQLite
+    
+    style Frontend fill:#e3f2fd
+    style Backend fill:#f3e5f5
+    style Storage fill:#fff3e0
+    style AIProviders fill:#e8f5e9
+    style LLM fill:#4caf50,color:#fff
 ```
-┌──────────────────────────────────────────┐
-│         ELECTRON FRONTEND                │
-│  React (19.2.0) + TypeScript (4.5.5)    │
-│  Main Process (824 lines)                │
-│  App Component (1,848 lines)             │
-└──────────────┬───────────────────────────┘
-               │ HTTP REST API (localhost:8000)
-               │
-┌──────────────▼───────────────────────────┐
-│         FASTAPI BACKEND                  │
-│  Python (3.12.3) + FastAPI (0.118.3)    │
-│  22 API Endpoints (911 lines)            │
-│  ├─ Transcription Service (Whisper)     │
-│  ├─ LLM Service (Multi-provider)         │
-│  ├─ Vector DB Service (ChromaDB)         │
-│  ├─ Config Service (AES-256)             │
-│  └─ Export Service (Multiple formats)    │
-└──────────────┬───────────────────────────┘
-               │
-    ┌──────────┴──────────┬───────────────┐
-    │                     │               │
-┌───▼───┐         ┌──────▼──────┐   ┌───▼────┐
-│SQLite │         │  ChromaDB   │   │ Whisper│
-│Database│         │ (11MB)      │   │large-v3│
-│(780KB)│         └─────────────┘   └────────┘
-└───────┘
 
-External AI Providers:
-┌─────────┬──────────┬───────────┬─────────┐
-│ Ollama  │ OpenAI   │ Anthropic │ Google  │
-│ (Local) │ (Cloud)  │ (Cloud)   │(Cloud)  │
-└─────────┴──────────┴───────────┴─────────┘
-```
 
-For detailed architecture information, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
-
----
-
-## 📊 Project Statistics
-
-**Codebase:**
-- Frontend: ~2,900 lines of TypeScript/TSX
-- Backend: ~1,400 lines of Python
-- Total: ~4,300 lines of code
-
-**Dependencies:**
-- Frontend: 25 npm packages
-- Backend: 85 Python packages
-
-**Features:**
-- 22 API endpoints
-- 104+ AI models supported
-- 7 backend services
-- 5 export formats
-- 99 languages supported
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for guidelines.
-
-**Development Setup:**
-```bash
-# Frontend development (Windows)
-cd frontend
-npm run start  # Hot reload enabled
-
-# Backend development (WSL2)
 cd backend
 source venv/bin/activate
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
@@ -306,12 +293,21 @@ These tools assisted with code generation, documentation, debugging, and impleme
 
 ## 🗺️ Roadmap
 
-### Version 1.1 (Current)
+### Version 1.1
 - ✅ Multi-provider AI support (104 models)
 - ✅ Dynamic model loading
 - ✅ Enhanced error handling
 - ✅ User-friendly error messages
 
+
+### Version 1.3.0 (Current - November 10, 2025)
+- ✅ **Phase 6 V4: Dynamic Model Discovery**
+- ✅ Full model tag support (e.g., deepseek-r1:14b)
+- ✅ Zero-configuration model loading
+- ✅ Provider-specific error messages
+- ✅ Graceful degradation across providers
+- ✅ Comprehensive troubleshooting documentation
+- ✅ Production-ready with 5 Mermaid architecture diagrams
 ### Version 1.2 (Planned - Q1 2026)
 - ⏳ Speaker diarization (who said what)
 - ⏳ Real-time transcription
@@ -352,6 +348,6 @@ If you find InsightsLM useful, please consider giving it a star on GitHub!
 
 **Built with ❤️ using AI and open-source technologies**
 
-**Version:** 1.1  
-**Last Updated:** November 4, 2025  
-**Status:** ✅ Production-Ready - Updated with actual system information
+**Version:** 1.3.0  
+**Last Updated:** November 10, 2025  
+**Status:** ✅ Production-Ready - Phase 6 V4 - Dynamic Model Discovery
