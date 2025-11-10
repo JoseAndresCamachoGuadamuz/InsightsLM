@@ -240,15 +240,7 @@ graph TB
 ```
 
 
-cd backend
-source venv/bin/activate
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-**Coding Standards:**
-- Frontend: TypeScript with TSDoc comments
-- Backend: Python with Google-style docstrings
-- See [CODE_STANDARDS.md](./docs/CODE_STANDARDS.md) for details
+For detailed architecture information, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ---
 
