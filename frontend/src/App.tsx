@@ -883,6 +883,13 @@ ${systemInstruction}`;
       setTestResults(prev => ({ ...prev, [provider]: response.data }));
       setTestingStatus(prev => ({ ...prev, [provider]: response.data.success ? 'success' : 'error' }));
       
+      // AUTO-REFRESH FIX: Refresh models after successful test
+      // This updates both dropdowns (left pane + Settings) automatically
+      if (response.data.success) {
+        console.log('[App] Test successful, refreshing available models...');
+        await fetchAvailableModels();
+      }
+      
       // Set timeout to clear status after 15 seconds
       const timeoutId = setTimeout(() => {
         setTestingStatus(prev => {
@@ -967,6 +974,11 @@ ${systemInstruction}`;
         return acc;
       }, {} as {[key: string]: 'idle' | 'testing' | 'success' | 'error'});
       setTestingStatus(newStatus);
+      
+      // AUTO-REFRESH FIX: Refresh models after testing all connections
+      // This updates both dropdowns (left pane + Settings) automatically
+      console.log('[App] All tests complete, refreshing available models...');
+      await fetchAvailableModels();
       
       // Set timeouts to auto-hide status after 15 seconds for each provider
       providers.forEach(provider => {
