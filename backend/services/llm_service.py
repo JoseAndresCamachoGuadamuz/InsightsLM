@@ -14,23 +14,9 @@ logger = logging.getLogger(__name__)
 
 # A dictionary mapping our app's internal model keys to the actual API model names
 # NOTE: Google models will use dynamic discovery, these are fallback names
-SUPPORTED_MODELS = {
-    # Ollama
-    "ollama_mistral": "mistral",
-    "ollama_llama3": "llama3",
-    # OpenAI
-    "openai_gpt5": "gpt-5",
-    "openai_gpt5_mini": "gpt-5-mini",
-    "openai_gpt5_nano": "gpt-5-nano",
-    "openai_gpt4o": "gpt-4o",
-    "openai_gpt4_turbo": "gpt-4-turbo",
-    # Anthropic
-    "claude_3_5_sonnet": "claude-3-5-sonnet-20240620",
-    "claude_3_opus": "claude-3-opus-20240229",
-    # Google - Original values (will be overridden by dynamic discovery)
-    "gemini_1_5_pro": "gemini-1.5-pro",
-    "gemini_1_5_flash": "gemini-1.5-flash",
-}
+# SUPPORTED_MODELS dictionary removed in V3 fix
+# Model validation now happens dynamically in generate_response()
+# This allows any installed Ollama model or discovered cloud model to work immediately
 
 # --- Helper Functions for Dynamic Key Loading ---
 
@@ -176,7 +162,8 @@ def get_ollama_models():
                 formatted_models.append({
                     'key': model_key,
                     'label': model_label,
-                    'provider': 'ollama'
+                    'provider': 'ollama',
+                    'model_name': model.model  # Store full name with tag (e.g., "deepseek-r1:14b")
                 })
         
         logger.info(f"Found {len(formatted_models)} Ollama models")
@@ -690,9 +677,52 @@ def test_api_connection(provider: str) -> dict:
     """
     REQUIREMENT 5.4: Test connection for a specific provider.
     Used by the new API testing endpoints.
+    
+    FIX 2024-11-10: Changed to query installed Ollama models dynamically
+    instead of using hardcoded/config models that may not be installed.
     """
     if provider == "ollama":
-        return test_ollama_connection()
+        # Query installed models dynamically (same pattern as get_all_available_models)
+        try:
+            installed_models = get_ollama_models()
+            
+            # Check if any models are installed
+            if not installed_models or len(installed_models) == 0:
+                return {
+                    "success": False,
+                    "message": "No Ollama models installed. Install a model with: ollama pull llama3",
+                    "provider": "ollama"
+                }
+            
+            # Use first installed model for testing
+            first_model = installed_models[0]
+            model_key = first_model['key']  # e.g., "ollama_llama3"
+            model_name = model_key.replace("ollama_", "")  # e.g., "llama3"
+            
+            # Test connection with installed model
+            result = test_ollama_connection(model=model_name)
+            
+            # Enhance success message to show which model was tested
+            if result["success"]:
+                result["message"] = f"Ollama connected successfully using '{model_name}'"
+            
+            return result
+            
+        except ValueError as e:
+            # get_ollama_models() raised user-friendly error (e.g., Ollama not running)
+            return {
+                "success": False,
+                "message": str(e),
+                "provider": "ollama"
+            }
+        except Exception as e:
+            # Unexpected error
+            return {
+                "success": False,
+                "message": f"Ollama test failed: {str(e)}",
+                "provider": "ollama",
+                "error": str(e)
+            }
     elif provider == "openai":
         return test_openai_connection()
     elif provider == "anthropic":
@@ -709,28 +739,104 @@ def test_api_connection(provider: str) -> dict:
 
 # --- Main Public Function ---
 
-def generate_response(prompt: str, model_key: str = "ollama_mistral") -> str:
+def generate_response(prompt: str, model_key: str = "ollama_mistral", temperature: float = 0.7) -> str:
     """
     Routes a prompt to the specified AI provider and returns the response.
     REQUIREMENT 5.1: Now uses fresh API key loading on each request.
-    DYNAMIC GEMINI FIX: Uses dynamic model discovery for Google Gemini.
+    DYNAMIC MODEL FIX V3: Dynamically extracts model names from model_keys.
+    
+    Args:
+        prompt: The user prompt to send to the model
+        model_key: The model key (e.g., "ollama_gemma", "openai_gpt4o")
+        temperature: Temperature for response generation (0.0-1.0)
+    
+    Returns:
+        The model's response as a string
+    
+    Raises:
+        ValueError: If model_key format is invalid or provider is unknown
     """
-    if model_key not in SUPPORTED_MODELS:
-        raise ValueError(f"Model '{model_key}' is not supported.")
-
-    model_name = SUPPORTED_MODELS[model_key]
+    logger.info(f"generate_response called with model_key='{model_key}'")
     
     try:
-        if model_key.startswith("ollama"):
-            return _call_ollama(model_name, prompt)
-        elif model_key.startswith("openai"):
-            return _call_openai(model_name, prompt)
-        elif model_key.startswith("claude"):
-            return _call_anthropic(model_name, prompt)
-        elif model_key.startswith("gemini"):
-            return _call_gemini(model_name, prompt)
+        # Extract provider from model_key
+        if model_key.startswith("ollama_"):
+            # Ollama: Query available models to get full name with tag
+            available_models = get_ollama_models()
+            
+            # Find the model by key
+            model_info = next((m for m in available_models if m['key'] == model_key), None)
+            
+            if not model_info:
+                raise ValueError(
+                    f"Ollama model '{model_key}' is not available. "
+                    "Please check installed models with: ollama list"
+                )
+            
+            # Use the full model name with tag (e.g., "deepseek-r1:14b")
+            full_model_name = model_info['model_name']
+            logger.info(f"Using provider: ollama, model: {full_model_name}")
+            return _call_ollama(full_model_name, prompt)
+            
+        elif model_key.startswith("openai_"):
+            # OpenAI: Query available models to get correct model_id
+            available_models = get_openai_models()
+            
+            # Find the model by key
+            model_info = next((m for m in available_models if m['key'] == model_key), None)
+            
+            if not model_info:
+                raise ValueError(
+                    f"OpenAI model '{model_key}' is not available. "
+                    "Please check your OpenAI account."
+                )
+            
+            # Use the original model_id from discovery
+            model_id = model_info['model_id']
+            logger.info(f"Using provider: openai, model: {model_id}")
+            return _call_openai(model_id, prompt)
+            
+        elif model_key.startswith("claude_"):
+            # Anthropic: Query available models to get correct model_id
+            available_models = get_anthropic_models()
+            
+            # Find the model by key
+            model_info = next((m for m in available_models if m['key'] == model_key), None)
+            
+            if not model_info:
+                raise ValueError(
+                    f"Anthropic model '{model_key}' is not available. "
+                    "Please check your Anthropic API key."
+                )
+            
+            # Use the original model_id from discovery
+            model_id = model_info['model_id']
+            logger.info(f"Using provider: anthropic, model: {model_id}")
+            return _call_anthropic(model_id, prompt)
+            
+        elif model_key.startswith("gemini_"):
+            # Google Gemini: Query available models to get correct model_id
+            available_models = get_google_models()
+            
+            # Find the model by key
+            model_info = next((m for m in available_models if m['key'] == model_key), None)
+            
+            if not model_info:
+                # Fallback to dynamic discovery (same as _call_gemini)
+                logger.warning(f"Model '{model_key}' not found in discovery, using dynamic fallback")
+                return _call_gemini("gemini-pro", prompt)  # Uses _get_working_gemini_model internally
+            
+            # Use the original model_id from discovery
+            model_id = model_info['model_id']
+            logger.info(f"Using provider: google, model: {model_id}")
+            return _call_gemini(model_id, prompt)
+            
         else:
-            raise ValueError("Unknown model provider.")
+            raise ValueError(f"Unknown model provider for key: {model_key}")
+            
+    except ValueError:
+        # Re-raise ValueError (user-friendly errors)
+        raise
     except Exception as e:
         logger.error(f"Error with {model_key}: {e}")
         return f"Error: Could not get a response from {model_key}. {str(e)}"
