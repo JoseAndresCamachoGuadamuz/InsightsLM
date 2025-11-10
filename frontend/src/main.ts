@@ -837,8 +837,8 @@ app.on('ready', async () => {
   });
 
   // --- STEP 10: Auto-Start Backend Before Creating Window ---
-  logInfo('[App] Starting backend auto-start sequence...');
-  const backendStarted = await startBackendWithRetry();
+  logInfo('[App] Backend auto-start DISABLED - using external backend...');
+  const backendStarted = false; // DISABLED: await startBackendWithRetry();
   
   if (backendStarted) {
     logInfo(`[App] ✅ Backend ready on port ${backendPort}, creating main window...`);
