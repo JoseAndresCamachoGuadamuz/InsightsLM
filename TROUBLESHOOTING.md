@@ -620,8 +620,8 @@ Include:
 
 ## 📚 Additional Resources
 
-- **Setup Guide**: [SETUP_GUIDE.md](./SETUP_GUIDE.md)
-- **User Guide**: [USER_GUIDE.md](./USER_GUIDE.md)
+- **Setup Guide**: [SETUP_GUIDE.md](./docs/SETUP_GUIDE.md)
+- **User Guide**: [USER_GUIDE.md](./docs/USER_GUIDE.md)
 - **GPU Setup**: [docs/GPU_SETUP.md](./docs/GPU_SETUP.md)
 - **API Reference**: [docs/API_REFERENCE.md](./docs/API_REFERENCE.md)
 - **GitHub Issues**: [Report a Bug](https://github.com/JoseAndresCamachoGuadamuz/InsightsLM/issues)

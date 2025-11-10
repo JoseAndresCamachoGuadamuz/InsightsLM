@@ -630,7 +630,7 @@ Google: Google Gemini API key not configured."
 
 ## 📚 Related Documentation
 
-- **Setup Guide**: [SETUP_GUIDE.md](../SETUP_GUIDE.md)
+- **Setup Guide**: [SETUP_GUIDE.md](./SETUP_GUIDE.md)
 - **API Reference**: [API_REFERENCE.md](./API_REFERENCE.md)
 - **Troubleshooting**: [TROUBLESHOOTING.md](../TROUBLESHOOTING.md)
 - **Architecture**: [ARCHITECTURE.md](./ARCHITECTURE.md)
